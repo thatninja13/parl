@@ -96,7 +96,7 @@ def setup_args() -> ParlaiParser:
     )
     parser.add_argument(
         "-eio",
-        "--enable_inference_optimization",
+        "--enable-inference-optimization",
         type=bool,
         default=False,
         help="Enable inference optimizations on the scripted model.",
