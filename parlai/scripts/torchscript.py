@@ -55,7 +55,9 @@ def export_model(opt: Opt):
     if not opt["no_cuda"]:
         instantiated = instantiated.cuda()
     if opt.get("enable_inference_optimizations"):
-        scripted_model = torch.jit.optimize_for_inference(torch.jit.script(instantiated.eval()))
+        scripted_model = torch.jit.optimize_for_inference(
+            torch.jit.script(instantiated.eval())
+        )
     else:
         scripted_model = torch.jit.script(instantiated)
 
@@ -96,7 +98,7 @@ def setup_args() -> ParlaiParser:
     )
     parser.add_argument(
         "-eio",
-        "--enable-inference-optimization",
+        "--enable_inference_optimization",
         type=bool,
         default=False,
         help="Enable inference optimizations on the scripted model.",
