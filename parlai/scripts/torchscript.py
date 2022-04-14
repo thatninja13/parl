@@ -54,7 +54,7 @@ def export_model(opt: Opt):
     instantiated = script_class(agent)
     if not opt["no_cuda"]:
         instantiated = instantiated.cuda()
-    if opt.get("enable-inference-optimizations"):
+    if opt.get("enable_inference_optimizations"):
         scripted_model = torch.jit.optimize_for_inference(torch.jit.script(instantiated.eval()))
     else:
         scripted_model = torch.jit.script(instantiated)
